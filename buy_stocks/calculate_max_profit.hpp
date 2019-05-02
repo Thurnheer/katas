@@ -41,15 +41,6 @@ T calculate_max_profit(const std::vector<T>& stock_prices)
 namespace kata
 {
 
-/*auto minOfDifference = [](std::tuple<auto auto>, auto value) {*/
-template<typename T>
-std::tuple<T,T> minOfDifference(std::tuple<T, T> acc, T value) {
-    auto& [currentMinimum, difference] = acc;
-    currentMinimum = kataSolution2::min(currentMinimum, value);
-    difference = value - currentMinimum;
-    return acc;
-}
-
 template <typename T>
 T calculate_max_profit(const std::vector<T>& stock_prices)
 {
