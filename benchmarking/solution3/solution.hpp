@@ -34,14 +34,14 @@ template <typename T>
 T calculate_max_profit(const std::vector<T>& stock_prices)
 {
   T minimum{ std::numeric_limits<T>::max() };
-  T income{ 0 };
+  T max_profit{ 0 };
 
   for(auto element : stock_prices)
   {
-    minimum = std::min(minimum, element);
-    income  = std::max(income, element - minimum);
+    minimum    = std::min(minimum, element);
+    max_profit = std::max(max_profit, element - minimum);
   }
-  return income;
+  return max_profit;
 }
 
 } // namespace kata
