@@ -6,10 +6,34 @@
 
 namespace kata {
 
+/*
+
 template <typename T>
 T calculate_max_profit(const std::vector<T>& stock_prices)
 {
-  T minimum{ std::numeric_limits<T>::min() };
+T maxDifference     = 0;
+T currentMinElement = std::numeric_limits<T>::max();
+
+for(auto element : stock_prices)
+{
+  if(element < currentMinElement)
+  {
+    currentMinElement = element;
+  }
+
+  T diff = element - currentMinElement;
+  if(diff > maxDifference)
+    maxDifference = diff;
+}
+
+return maxDifference;
+}
+*/
+
+template <typename T>
+T calculate_max_profit(const std::vector<T>& stock_prices)
+{
+  T minimum{ std::numeric_limits<T>::max() };
   T income{ 0 };
 
   for(auto element : stock_prices)

@@ -8,7 +8,7 @@
 
 namespace kataSolution2 {
 
-auto min = [](auto a, auto b) { return a < b ? a : b; }
+auto min = [](auto a, auto b) { return a < b ? a : b; };
 auto max = [](auto a, auto b) { return a > b ? a : b; };
 
 } // namespace kataSolution2
