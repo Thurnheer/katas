@@ -1,0 +1,8 @@
+[requires]
+google-benchmark/1.4.1@mpusz/stable
+gtest/1.8.0@bincrafters/stable
+
+[options]
+
+[generators]
+cmake_paths
