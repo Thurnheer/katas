@@ -1,0 +1,9 @@
+[requires]
+trompeloeil/v34@rollbear/stable
+Catch2/2.7.2@catchorg/stable
+google-benchmark/1.4.1@mpusz/stable
+
+[options]
+
+[generators]
+cmake_paths
