@@ -3,49 +3,53 @@
 
 TEST_CASE("Normal counting in tennis", "[counting]")
 {
-    Tennis tennis;
+    using namespace tennis;
+
     Player federer("Federer");
     Player nadal("Nadal");
+    Tennis tennis(federer, nadal);
 
     SECTION("First comes love") {
-        REQUIRE("Love" == tennis.score_of(federer));
-        REQUIRE("Love" == tennis.score_of(nadal));
+        REQUIRE("love" == tennis.score_of(federer));
+        REQUIRE("love" == tennis.score_of(nadal));
     }
 
     tennis.scored(federer);
 
     SECTION("Then comes 15") {
         REQUIRE("15" == tennis.score_of(federer));
-        REQUIRE("Love" == tennis.score_of(nadal));
+        REQUIRE("love" == tennis.score_of(nadal));
     }
 
     tennis.scored(federer);
 
     SECTION("Then comes 30") {
-        REQUIRE("15" == tennis.score_of(federer));
-        REQUIRE("Love" == tennis.score_of(nadal));
+        REQUIRE("30" == tennis.score_of(federer));
+        REQUIRE("love" == tennis.score_of(nadal));
     }
 
     tennis.scored(federer);
 
     SECTION("Then comes 40") {
-        REQUIRE("15" == tennis.score_of(federer));
-        REQUIRE("Love" == tennis.score_of(nadal));
+        REQUIRE("40" == tennis.score_of(federer));
+        REQUIRE("love" == tennis.score_of(nadal));
     }
 
     tennis.scored(federer);
 
     SECTION("Then comes won") {
         REQUIRE("won" == tennis.score_of(federer));
-        REQUIRE("Love" == tennis.score_of(nadal));
+        REQUIRE("" == tennis.score_of(nadal));
     }
 }
 
 TEST_CASE("When the two players reach 40 it is called douce", "[deuce]")
 {
-    Tennis tennis;
+    using namespace tennis;
+
     Player federer("Federer");
     Player nadal("Nadal");
+    Tennis tennis(federer, nadal);
     tennis.scored(federer);
     tennis.scored(nadal);
     tennis.scored(federer);
@@ -59,11 +63,11 @@ TEST_CASE("When the two players reach 40 it is called douce", "[deuce]")
     tennis.scored(federer);
 
     SECTION("when a player then scores it is called advantage") {
-        REQUIRE("advangtage" == tennis.score_of(federer));
+        REQUIRE("advantage" == tennis.score_of(federer));
         REQUIRE("" == tennis.score_of(nadal));
     }
 
-    tennis.scored(federer);
+    tennis.scored(nadal);
 
     SECTION("when the other player scores it retournes to deuce") {
         REQUIRE("deuce" == tennis.score_of(federer));
