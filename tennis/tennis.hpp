@@ -7,7 +7,6 @@
 
 namespace tennis {
 
-
 enum class score {
     love,
     fifteen,
@@ -39,9 +38,6 @@ std::string toString(const score& s) {
     }
 }
 
-struct forty {
-};
-
 class Player
 {
 public:
@@ -53,11 +49,6 @@ private:
     std::string name_;
 };
 
-struct advantage {
-    Player adv;
-};
-
-
 bool operator==(const Player& lhs, const Player& rhs) {
     return 0 == lhs.name_.compare(rhs.name_);
 }
@@ -65,6 +56,10 @@ bool operator==(const Player& lhs, const Player& rhs) {
 bool operator!=(const Player& lhs, const Player& rhs) {
     return !(lhs == rhs);
 }
+
+struct advantage {
+    Player adv;
+};
 
 struct Thirtycounting {
     Player player_has_forty;
